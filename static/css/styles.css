@@ -17,15 +17,15 @@ h6 {
   background-color: #5f788a;
 }
 
-.site-header .navbar-nav .nav-link {
+.header .navbar-nav .nav-link {
   color: #cbd5db;
 }
 
-.site-header .navbar-nav .nav-link:hover {
+.header .navbar-nav .nav-link:hover {
   color: #ffffff;
 }
 
-.site-header .navbar-nav .nav-link.active {
+.header .navbar-nav .nav-link.active {
   font-weight: 500;
 }
 
@@ -37,16 +37,16 @@ h6 {
   margin-bottom: 20px;
 }
 
-.article-title {
+.pitch-type {
   color: #444444;
 }
 
-a.article-title:hover {
+a.pitch-title:hover {
   color: #428bca;
   text-decoration: none;
 }
 
-.article-content {
+.pitch-content {
   white-space: pre-line;
 }
 
@@ -56,13 +56,13 @@ a.article-title:hover {
   margin-right: 16px;
 }
 
-.article-metadata {
+.pitch-metadata {
   padding-bottom: 1px;
   margin-bottom: 4px;
   border-bottom: 1px solid #e3e3e3;
 }
 
-.article-metadata a:hover {
+.pitch-metadata a:hover {
   color: #333;
   text-decoration: none;
 }
