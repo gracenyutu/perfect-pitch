@@ -1,4 +1,5 @@
 # from title import title
+from datetime import datetime
 from email.policy import default
 from flask import Flask, render_template, url_for, flash, redirect
 from flask_sqlalchemy import SQLAlchemy
@@ -15,9 +16,19 @@ class User(db.Model):
     username = db.Column(db.String(120), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
+    pitches = db.relationship('Post', backref='author', lazy=True)
 
     def __repr__(self):
-        return f"User('{self.username}', '{self.email}', '{self.image_file}'"
+        return f"User('{self.username}', '{self.email}', '{self.image_file}')"
+
+class Pitch(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    type = db.Column(db.String(100), nullable=False)
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    content = db.Column(db.Text, nullable=False)
+
+    def __repr__(self):
+        return f"Pitch('{self.type}', '{self.date_posted}')"
 
 pitches = [
     {
