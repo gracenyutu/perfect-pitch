@@ -1,20 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if title %}
-        <title>Pitches - {{ title }}</title>
-    {% else %}
-        <title>Pitches</title>
-    {% endif %}
-</head>
-<body>
+{% extends "layout.html" %}
+{% block content %}
     {% for pitch in pitches%}
         <h1>{{ pitch.type }}</h1>
         <p>By {{ pitch.author}}, on {{ pitch.date_posted}}</p>
         <p>{{ pitch.content}}</p>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
