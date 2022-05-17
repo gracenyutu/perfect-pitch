@@ -1,5 +1,6 @@
 from pitches import db
 from datetime import datetime
+from email.policy import default
 
 
 class User(db.Model):
