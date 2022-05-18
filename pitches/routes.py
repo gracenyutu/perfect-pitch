@@ -2,7 +2,7 @@ import os
 import secrets
 from flask import render_template, url_for, flash, redirect, request
 from pitches import app, db, bcrypt
-from pitches.forms import RegistrationForm, LoginForm, UpdateAccountForm
+from pitches.forms import RegistrationForm, LoginForm, UpdateAccountForm, PitchForm
 from pitches.models import User, Pitch
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -91,3 +91,12 @@ def account():
         form.email.data = current_user.email
     image_file = url_for('static', filename='images/' + current_user.image_file)
     return render_template('account.html', title='Account', image_file=image_file, form=form)
+
+@app.route("/pitch/new", methods=['GET', 'POST'])
+@login_required
+def new_pitch():
+    form = PitchForm()
+    if form.validate_on_submit():
+        flash('Pitch created successfully!', 'success')
+        return redirect(url_for('home'))
+    return render_template('create_pitch.html', title='New Pitch', form=form)
