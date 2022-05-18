@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="media content-section">
+        <img class="rounded-circle media-img" src="{{ url_for('static', filename='images/' + pitch.author.image_file) }}" alt="">
+        <div class="media-body">
+        <div class="pitch-metadata">
+            <a class="mr-2" href="#">{{ pitch.author.username }}</a>
+            <small class="text-muted">{{ pitch.date_posted.strftime('%Y-%m-%d') }}</small>
+        </div>
+        <h2 class="pitch-type">{{ pitch.type }}</h2>
+        <p class="pitch-content">{{ pitch.content }}</p>
+        </div>
+    </div>
+{% endblock %}

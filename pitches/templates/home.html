@@ -8,7 +8,7 @@
                 <a class="mr-2" href="#">{{ pitch.author.username }}</a>
                 <small class="text-muted">{{ pitch.date_posted.strftime('%Y-%m-%d') }}</small>
             </div>
-            <h2><a class="pitch-type" href="#">{{ pitch.type }}</a></h2>
+            <h2><a class="pitch-type" href="{{ url_for('pitch', pitch_id=pitch.id) }}">{{ pitch.type }}</a></h2>
             <p class="pitch-content">{{ pitch.content }}</p>
             </div>
         </div>
