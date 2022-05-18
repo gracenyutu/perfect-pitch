@@ -6,24 +6,11 @@ from pitches.forms import RegistrationForm, LoginForm, UpdateAccountForm, PitchF
 from pitches.models import User, Pitch
 from flask_login import login_user, current_user, logout_user, login_required
 
-pitches = [
-    {
-        'author': 'Barrack Obama',
-        'type': 'One Word Pitch',
-        'content': 'Hope',
-        'date_posted': 'May 13, 2022'
-    },
-    {
-        'author': 'Google',
-        'type': 'One Word Pitch',
-        'content': 'Search',
-        'date_posted': 'May 1, 2022'
-    }
-]
 
 @app.route("/")
 @app.route("/home")
 def home():
+    pitches = Pitch.query.all()
     return render_template('home.html', pitches=pitches)
 
 @app.route("/about")
@@ -97,6 +84,9 @@ def account():
 def new_pitch():
     form = PitchForm()
     if form.validate_on_submit():
+        pitch = Pitch(type=form.type.data, content=form.content.data, author=current_user)
+        db.session.add(pitch)
+        db.session.commit()
         flash('Pitch created successfully!', 'success')
         return redirect(url_for('home'))
     return render_template('create_pitch.html', title='New Pitch', form=form)
