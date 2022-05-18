@@ -27,10 +27,10 @@ class Pitch(db.Model):
     def __repr__(self):
         return f"Pitch('{self.type}', '{self.date_posted}')"
 
-class Comment(db.Model):
-    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    content = db.Column(db.Text, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+# class Comment(db.Model):
+#     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+#     content = db.Column(db.Text, nullable=False)
+#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
-    def __repr__(self):
-        return f"Comment('{self.content}', '{self.date_posted}')"
+#     def __repr__(self):
+#         return f"Comment('{self.content}', '{self.date_posted}')"
