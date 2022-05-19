@@ -8,11 +8,12 @@ Grace Nyutu
 This is an application that allows users to submit their one minute pitches and other users will vote on them and leave comments to give their feedback on them.
 ## Live Demo
 
-Click [Link]() to visit my site
+Click [Link](https://pitchesweb.herokuapp.com/) to visit my site
 
 ## Screenshot
 
-![Screenshot from 2022-05-05 08-26-25]()
+![Screenshot from 2022-05-05 08-26-25](![Screenshot from 2022-05-19 09-45-17](https://user-images.githubusercontent.com/95080265/169228030-70cd985a-39a1-4d51-9bef-6fa45fab038e.png)
+)
 
 
 ## Development Installation
